@@ -1,0 +1,136 @@
+"id":"",
+"serviceCode":"$service",
+"isInclusive":"",
+"minimumChargeAmount":"$minfixedservicecharge",
+"maximumChargeAmount":"$maxfixedservicecharge",
+"isTaxInclusive":"",
+"minimumTaxAmount":"",
+"maximumTaxAmount":"",
+"policyType":"serviceChargePolicy",
+"version":"$version",
+"status":"$status",
+"created_on":"$createdon",
+"last_modified_on":"$modifiedon",
+"created_by":"$createdby",
+"last_modified_by":"$modifiedby",
+
+[
+   {
+      "condition":{
+         "conditions":[
+            {
+               "conditions":[
+                  {
+                     "rhsValue":"$payingentity",
+                     "lhsExpression":"sender.roleWithGrade",
+                     "childCondition":{
+                        "rhsValue":[
+                           "$sendergrade"
+                        ],
+                        "lhsExpression":"grade",
+                        "operator":"in"
+                     },
+                     "operator":"equals"
+                  }
+               ],
+               "operator":"and"
+            },
+            {
+               "conditions":[
+                  {
+                     "rhsValue":"$creditedentity",
+                     "lhsExpression":"receiver.roleWithGrade",
+                     "childCondition":{
+                        "rhsValue":[
+                           "$receivergrade"
+                        ],
+                        "lhsExpression":"grade",
+                        "operator":"in"
+                     },
+                     "operator":"equals"
+                  }
+               ],
+               "operator":"and"
+            }
+         ],
+         "operator":"and"
+      },
+      "ruleType":"chargeRule",
+      "name":"$scname",
+      "chargePricingRange":{
+         "maximumAmount":"$maxfixedservicecharge",
+         "minimumAmount":"$minfixedservicecharge"
+      },
+      "chargeStatements":[
+         {
+            "pricingFactor":"both",
+            "pricingMethod":{
+               "slabBasis":"transactionAmount",
+               "pricingSlabs":[
+                  {
+                   "min":"$SCfromrangeslab0",
+                   "max":"$SCtorangeslab0",
+                   "percentage":"$servicechargeslab0(%)",
+                   "fixedAmount":"$servicechargeslab0(fixed)"
+                  },
+                  {
+                   "min":"$SCfromrangeslab1",
+                   "max":"$SCtorangeslab1",
+                   "percentage":"$servicechargeslab1(%)",
+                   "fixedAmount":"$servicechargeslab1(fixed)"
+                  },
+                  {
+                   "min":"$SCfromrangeslab2",
+                   "max":"$SCtorangeslab2",
+                   "percentage":"$servicechargeslab2(%)",
+                   "fixedAmount":"$servicechargeslab2(fixed)"
+                  },
+                  {
+                   "min":"$SCfromrangeslab3",
+                   "max":"$SCtorangeslab3",
+                   "percentage":"$servicechargeslab3(%)",
+                   "fixedAmount":"$servicechargeslab3(fixed)"
+                  },
+                  {
+                   "min":"$SCfromrangeslab4",
+                   "max":"$SCtorangeslab4",
+                   "percentage":"$servicechargeslab4(%)",
+                   "fixedAmount":"$servicechargeslab4(fixed)"
+                  }
+               ],
+               "isTelescopic":$telescopicpricingonsc},
+               "type":"slabbedPricing"
+            },
+            "chargePayer":"$chargepayer",
+            "chargeReceiver":"serviceProvider",
+            "chargePayerProductId":"$senderwallet/bank"
+         }
+      ],
+      "id":"",
+      "startDate":"$modifiedon",
+      "status":"$status"
+   }
+],
+[],
+[
+   {
+      "ruleType":"taxRule",
+      "name":"$taxname",
+      "id":"",
+      "taxStatements":[
+         {
+            "pricingFactor":"both",
+            "pricingMethod":{
+               "percentage":"$taxservicecharge(%)",
+               "fixedAmount":"$taxservicecharge(fixed)",
+               "type":"flatPricing"
+            }
+         }
+      ],
+      "startDate":"$modifiedon",
+      "status":"$status"
+   }
+],
+
+"is_financial":"$isfinancial",
+"currency":"$sendermfsprovider"

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <mapping wildcard="false" map-id="BULK_BILLPAY" map-null="false" type="one-way">
+        <class-a>java.util.Map</class-a>
+        <class-b>java.util.Map</class-b>
+        <field>
+            <a key="Sender MFS Provider">this</a>
+            <b key="sendermfsprovider">this</b>
+        </field>
+        <field>
+            <a key="Sender Wallet Type/ Linked Bank">this</a>
+            <b key="senderwallet/tbank">this</b>
+        </field>
+        <field>
+            <a key="Sender Grade">this</a>
+            <b key="sendergrade">this</b>
+        </field>
+        <field>
+            <a key="Receiver Grade">this</a>
+            <b key="receivergrade">this</b>
+        </field>
+        <field>
+            <a key="Service">this</a>
+            <b key="service">this</b>
+        </field>
+        <field>
+            <a key="Paying Entity - Sender name">this</a>
+            <b key="payingentity">this</b>
+        </field>
+        <field>
+            <a key="Credited Entity - Receiver name">this</a>
+            <b key="creditedentity">this</b>
+        </field>
+        <field>
+            <a key="min Fixed Service charge ">this</a>
+            <b key="minfixedservicecharge">this</b>
+        </field>
+        <field>
+            <a key="max Fixed Service Charge">this</a>
+            <b key="maxfixedservicecharge">this</b>
+        </field>
+        <field>
+            <a key="Telescopic Pricing On Service Charge">this</a>
+            <b key="telescopicpricingonsc">this</b>
+        </field>
+        <field>
+            <a key="SC From Range slab-0">this</a>
+            <b key="SCfromrangeslab0">this</b>
+        </field>
+        <field>
+            <a key="SC To Range slab-0">this</a>
+            <b key="SCtorangeslab0">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-0(%)">this</a>
+            <b key="servicechargeslab0(%)">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-0(fixed)">this</a>
+            <b key="servicechargeslab0(fixed)">this</b>
+        </field>
+        <field>
+            <a key="SC From Range slab-1">this</a>
+            <b key="SCfromrangeslab1">this</b>
+        </field>
+        <field>
+            <a key="SC To Range slab-1">this</a>
+            <b key="SCtorangeslab1">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-1(%)">this</a>
+            <b key="servicechargeslab1(%)">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-1(fixed)">this</a>
+            <b key="servicechargeslab1(fixed)">this</b>
+        </field>
+        <field>
+            <a key="SC From Range slab-2">this</a>
+            <b key="SCfromrangeslab2">this</b>
+        </field>
+        <field>
+            <a key="SC To Range slab-2">this</a>
+            <b key="SCtorangeslab2">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-2(%)">this</a>
+            <b key="servicechargeslab2(%)">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-2(fixed)">this</a>
+            <b key="servicechargeslab2(fixed)">this</b>
+        </field>
+        <field>
+            <a key="SC From Range slab-3">this</a>
+            <b key="SCfromrangeslab3">this</b>
+        </field>
+        <field>
+            <a key="SC To Range slab-3">this</a>
+            <b key="SCtorangeslab3">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-3(%)">this</a>
+            <b key="servicechargeslab3(%)">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-3(fixed)">this</a>
+            <b key="servicechargeslab3(fixed)">this</b>
+        </field>
+        <field>
+            <a key="SC From Range slab-4">this</a>
+            <b key="SCfromrangeslab4">this</b>
+        </field>
+        <field>
+            <a key="SC To Range slab-4">this</a>
+            <b key="SCtorangeslab4">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-4(%)">this</a>
+            <b key="servicechargeslab4(%)">this</b>
+        </field>
+        <field>
+            <a key="Service Charge slab-4(fixed)">this</a>
+            <b key="servicechargeslab4(fixed)">this</b>
+        </field>
+        <field>
+            <a key="Tax Service Charge(%)">this</a>
+            <b key="taxservicecharge(%)">this</b>
+        </field>
+        <field>
+            <a key="Tax Service Charge(fixed)">this</a>
+            <b key="taxservicecharge(fixed)">this</b>
+        </field>
+        <field>
+            <a key="Version">this</a>
+            <b key="version">this</b>
+        </field>
+        <field>
+            <a key="Status">this</a>
+            <b key="status">this</b>
+        </field>
+        <field>
+            <a key="Created On">this</a>
+            <b key="createdon">this</b>
+        </field>
+        <field>
+            <a key="Modified On">this</a>
+            <b key="modifiedon">this</b>
+        </field>
+        <field>
+            <a key="Created By">this</a>
+            <b key="createdby">this</b>
+        </field>
+        <field>
+            <a key="Modified By">this</a>
+            <b key="modifiedby">this</b>
+        </field>
+        <field>
+            <a key="Service Charge Name">this</a>
+            <b key="scname">this</b>
+        </field>
+        <field>
+            <a key="Charge Payer">this</a>
+            <b key="chargepayer">this</b>
+        </field>
+        <field>
+            <a key="Tax Name">this</a>
+            <b key="taxname">this</b>
+        </field>
+        <field>
+            <a key="Is Financial">this</a>
+            <b key="isfinancial">this</b>
+        </field>
+
+    </mapping>
+</mappings>
