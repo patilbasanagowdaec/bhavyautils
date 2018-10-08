@@ -175,6 +175,11 @@
             <a key="Is Financial">this</a>
             <b key="isfinancial">this</b>
         </field>
+        
+        <field>
+            <a key="id">this</a>
+            <b key="id">this</b>
+        </field>
 
     </mapping>
 </mappings>
