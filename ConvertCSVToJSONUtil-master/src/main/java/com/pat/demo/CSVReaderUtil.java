@@ -2,11 +2,13 @@ package com.pat.demo;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
 
 import com.opencsv.CSVReader;
@@ -14,12 +16,11 @@ import com.opencsv.CSVReaderBuilder;
 
 public class CSVReaderUtil {
 
-	public Map<String, String> readCSVFile(File file) {
+	public List<Map<String, String>> readCSVFile(File file) {
 		Map<String, String> csvFileMap = new HashMap<>();
-
+		List<Map<String, String>> csvFileMapList = new ArrayList<>();
 		try {
 			// Create an object of file reader
-			// class with CSV file as a parameter.
 			FileReader filereader = new FileReader(file);
 
 			// create csvReader object and skip first Line
@@ -54,12 +55,71 @@ public class CSVReaderUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		dozerConverter(csvFileMap);
-		return csvFileMap;
+		//dozerConverter(csvFileMap);
+		csvFileMapList.add(csvFileMap);
+		//return csvFileMap;
+		return csvFileMapList;
 
 	}
 	
 	
+	
+	public List<Map<String, String>> readRowWiseCSVFile(File file) {
+		List<Map<String, String>> csvFileMapList = new ArrayList<>();
+
+		try {
+			// Create an object of file reader class with CSV file as a parameter.
+			FileReader filereader = new FileReader(file);
+
+			// read all the lines of file
+			CSVReader csvReader = new CSVReaderBuilder(filereader).build();
+			List<String[]> allData = csvReader.readAll();
+
+			
+			for (String[] rowArray : allData) {
+				Map<String, String> csvFileMap = new HashMap<>();
+				for (String row : rowArray) {
+					// row seperate it by # for each column
+					String[] fieldsArray = row.split("#");
+					if (fieldsArray != null && fieldsArray.length > 0) {
+						
+						for(String field :  fieldsArray){
+							// populate single field by splitting it based on #
+							String[] fieldValueArray = field.split(":");
+							if (fieldValueArray != null && fieldValueArray.length > 1) {
+								
+								String key = StringUtils.removeEnd(StringUtils.removeFirst(fieldValueArray[0], "\""), "\"");
+								String value = StringUtils.removeEnd(StringUtils.removeFirst(fieldValueArray[1], "\""), "\"");
+								
+								
+								/*String key = fieldValueArray[0].substring(0, fieldValueArray[0].lastIndexOf("\""));
+								String value = fieldValueArray[1].substring(fieldValueArray[1].indexOf("\"") + 1,
+										fieldValueArray[1].length());*/
+								csvFileMap.put(key, value);
+								System.out.println(key + "\t" + value + "\t");
+							} else {
+								// to handle empty rows
+								if (fieldValueArray[0] != null && fieldValueArray[0].length() > 0) {
+									String key = fieldValueArray[0].substring(0, fieldValueArray[0].lastIndexOf("\""));
+									csvFileMap.put(key, null);
+									System.out.println(key + "\t");
+								}
+							}
+						}
+						
+					}
+					
+
+				}
+				csvFileMapList.add(csvFileMap);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		return csvFileMapList;
+
+	}	
 	
 	
 	public void dozerConverter(Map<String, String> csvFileMap){
@@ -96,6 +156,7 @@ public class CSVReaderUtil {
 		map.put("Service Charge slab-0(%)", "servicechargeslab0(%)");
 		map.put("Service Charge slab-0(fixed)", "servicechargeslab0(fixed)");
 		map.put("SC From Range slab-1", "SCfromrangeslab1");
+		map.put("id", "id");
 		//TODO add remaning fields
 		
 		return map;

@@ -24,10 +24,10 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class CSVToJSOnConverter {
 	
 	
-	public void execute(){
+/*	public void execute(){
 		CsvMapper mapper = new CsvMapper();
 		CsvSchema schema = CsvSchema.emptySchema().withoutHeader().withColumnSeparator(':');
-		File file = new File("/Users/bhavya/Documents/workspace-sts-3.8.4.RELEASE/ConvertCSVToJSONUtil/src/main/resources/SCWithData.csv");
+		File file = new File("/Users/z002qhl/Documents/workspace-sts-3.8.4.RELEASE/ConvertCSVToJSONUtil/src/main/resources/SCWithData.csv");
 		
 		
 		try {
@@ -47,7 +47,7 @@ public class CSVToJSOnConverter {
 		}
 	
 	
-	}
+	}*/
 	
 	
 	
